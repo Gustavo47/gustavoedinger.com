@@ -1,439 +1,155 @@
-<!doctype html>
-<html>
-	<head>
-	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
-	
-	<title>Gustavo Edinger</title>
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
-	
-	<style type="text/css">
-	@import url(
-	https://fonts.googleapis.com/css?family=Lato:400,700
-);
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gustavo Edinger - FullStack Developer</title>
+  
+  
+  
+      <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      @import "https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300";
+* {
+  box-sizing: border-box;
+}
+
 body {
-	background: #fff;
-	font-family: Lato, sans-serif;
-	margin: 0 0 80px;
+  background: #757575;
+  overflow-x: hidden;
 }
-a {
-	color: #2ecc71;
-}
-a:focus,
-a:hover {
-	color: #f1c40f;
-	text-decoration: none;
-}
-p {
-	line-height: 1.5;
-	margin: 0;
-}
-p + p {
-	margin-top: 10px;
-}
-h1,
-h2,
-h3,
-h4 {
-	margin-top: 0
-}
-section {
-	margin-top: 30px;
-}
-li {
-	line-height: 1.8;
-	list-style: none;
-}
-li:before {
-	content: "\f052";
-	float: left;
-	font: 13px Octicons;
-	margin-top: 6px;
-	margin-left: -20px;
-	opacity: .1;
-	position: absolute;
-}
-blockquote {
-	border-left: 5px solid #e7e9ec;
-	font-size: 14px;
-}
-em {
-	color: #95a5a6;
-	font-weight: normal;
-	font-style: normal;
-}
-h4 span:first-child {
-	color: #000;
-	font-weight: bold;
-}
+
 .container {
-	max-width: 750px;
-	padding: 0 30px;
-}
-.col-sm-6 {
-	margin-bottom: 10px;
-}
-.col-sm-12 h4 {
-	margin-top: 12px; 
-}
-.col-sm-12 + .col-sm-12 {
-	margin-top: 30px;
-}
-#header {
-	background: #f4f6f6;
-	padding: 50px 0;
-	margin-bottom: 30px;
-}
-#header h2 {
-	color: #95a5a6;
-	font-size: 24px;
-}
-#content h3 {
-	color: #428bca;
-	font-size: 26px;
-	margin-top: -4px;
-}
-#content aside {
-	text-align: right;
-	padding-right: 30px;
-}
-#profiles .network {
-	text-transform: capitalize;
-}
-#work .position,
-#volunteer .position {
-	font-weight: bold;
-	margin-bottom: 8px;
-}
-#education .area {
-	font-weight: bold;
-}
-#education .area:before {
-	content: "\f0d7";
-	font: 16px Octicons;
-	margin-right: 6px;
-}
-#education .studyType {
-	margin-left: 25px;
-}
-#awards .summary,
-#publications .summary {
-	margin-top: 8px;
-}
-#publications .website a:before {
-	content: attr(href);
+  perspective: 800px;
+  /* Styling */
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  /* Center it */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-@media (min-width: 480px) {
-	.strike-through {
-		border-top: 1px solid #f4f6f6;
-		height: 20px;
-		margin-top: 12px;
-		margin-bottom: -2px;
-		position: relative;
-	}
-	.strike-through span,
-	.strike-through a {
-		background: #fff;
-		position: absolute;
-	}
-	.strike-through span:first-child {
-		padding-right: 20px;
-		margin-top: -12px;
-	}
-	.strike-through span + span {
-		font-size: 14px;
-		margin-top: -10px;
-		padding-left: 20px;
-		right: 0;
-	}
+.card {
+  /* Styling */
+  width: 700px;
+  height: 400px;
+  background: #141414;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  /* Card flipping effects */
+  transform-style: preserve-3d;
+  transition: 0.6s;
 }
-@media (max-width: 768px) {
-	.col-sm-6:last-child {
-		margin-bottom: 0px;
-	}
-	#content aside {
-		margin-bottom: 20px;
-		padding-right: 0;
-		text-align: left;
-	}
-	#publications .website a:before {
-		content: "View publication";
-	}
+
+.side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  /* Fix Chrome rendering bug */
+  transform: rotate(0deg) translateZ(1px);
 }
-@media (max-width: 480px) {
-	h1 {
-		font-size: 26px;
-	}
-	.date {
-		font-size: 14px;
-		margin-bottom: 5px;
-	}
-	.strike-through span:first-child {
-		margin-bottom: 7px;
-	}
-	.strike-through span {
-		display: block;
-	}	
-	#header {
-		margin-bottom: 10px;
-		padding: 40px 0;
-	}
-	#actions {
-		display: none;
-	}
+
+/* Flip the card on hover */
+.container:hover .card,
+.back {
+  transform: rotateY(-180deg) translateZ(1px);
 }
-	.me {
-		border-radius: 300px;
-		max-width: 100%;
-	}
-	
-	@media print {
-		.me { 
-			width: 150px;
-		}
-	
-	}
-	
-	</style>
-	
-	</head>
-	<body>
-	
-	<header id="header">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-3">
-					<img src="me_croped.jpg" class="me" >
-				</div>
-				<div class="col-sm-9">
-					<h1>
-						Gustavo Edinger
-					</h1>
-					<h2>
-						Developer
-					</h2>
-				</div>
-			</div>
-		</div>
-	</header>
-	<div id="content" class="container">
 
-	<section id="contact" class="row">
-		<aside class="col-sm-3">
-			<h3>Contact</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-				<div class="col-sm-6">
-					<strong>Email</strong>
-					<div class="email">gustavo@edinger.com.br</div>
-				</div>
-				<div class="col-sm-6">
-					<strong>Phone</strong>
-					<div class="phone">+55 51 99946-4747</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-6">
-					<strong>Nationality</strong>
-					<div class="nationality">Brazilian</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section id="about" class="row">
-		<aside class="col-sm-3">
-			<h3>Me</h3>
-		</aside>
-		<div class="col-sm-9">
-			<p>I'm a developer, with 5+ years of experience creating innovative solutions. I have already developed from scratch a great number of integrated applications, from mobile apps to ecommerces and complex systems. I have a lot experience with PHP, JS, Angular 2, NativeScript (if you're not aware of it, take a look, it is an excellent kind of technology), Wordpress/Woocommerce, servers and much others... this list grows with every challenge that I face, I take real joy in learning and implementing new technologies in workplaces. For me, languages and technologies are only resources to create amazing solutions, and not religions.</p>
-		</div>
-	</section>
-	<section id="profiles" class="row">
-		<aside class="col-sm-3">
-			<h3>Profiles</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-				<div class="col-sm-6">
-					<strong class="network">
-						Twitter
-					</strong>
-					<div class="username">
-							GustavoEdinger
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<strong class="network">
-						Facebook
-					</strong>
-					<div class="username">
-						<div class="url">
-							<a href="https://www.facebook.com/gustavo.edinger">gustavo.edinger</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<strong class="network">
-						Linkedin
-					</strong>
-					<div class="username">
-						<div class="url">
-							<a href="https://www.linkedin.com/in/gustavo-edinger/">Gustavo Edinger</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+/* Front styling */
+.front {
+  /* Center the name + outline (almost) */
+  line-height: 390px;
+  /* Height - some (because visual center is a little higher than actual center) */
+  text-align: center;
+}
 
-	<section id="work" class="row">
-		<aside class="col-sm-3">
-			<h3>Work</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Inov Sistemas</span>
-					<span class="date">
-						2012-06-01 — now
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://inovsistemas.com.br">http://inovsistemas.com.br</a>
-				</div>
-				<div class="position">
-					FullStack Developer
-				</div>
-				<div class="summary">
-					<p>Inov Sistemas is a company that develop a ERP softwares and solutions.</p>
-				</div>
-				<h4>Highlights</h4>
-				<ul class="highlights">
-					<li class="bullet">Multi platform ERP with distributed databases.</li>
-					<li class="bullet">Build a site and mobile app that allow customer build his own jewl design</li>
-					<li class="bullet">Build a webapp that control all lawers office.</li>
-					<li class="bullet">Gave training and supporting ERP team to optimize MySQL, and also implemented GIT, DRY, OOP, REST and DDNS...</li>
-				</ul>
-			</div>
-			</div>
-		</div>
-	</section>
+.logo {
+  outline: 1px solid #19F6E8;
+  display: inline-block;
+  padding: 15px 40px;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.4em;
+  font-weight: normal;
+  line-height: 32px;
+  letter-spacing: 8px;
+}
 
-	
-	<section id="education" class="row">
-		<aside class="col-sm-3">
-			<h3>Education</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Unisinos</span>
-					<span class="date">
-						2013 — 2015
-					</span>
-				</h4>
-				<div class="area">
-					Digital Games
-				</div>
-				<div class="studyType">
-					Bachelor
-				</div>
-			</div>
-			</div>
-		</div>
-	</section>
-	
-	
-	
-	<section id="skills" class="row">
-		<aside class="col-sm-3">
-			<h3>Skills</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Development</h4>
-				</div>
-				<ul class="keywords">
-					<li>PHP7</li>
-					<li>Javascript</li>
-					<li>Zend 2</li>
-					<li>Angular</li>
-					<li>NodeJS</li>
-					<li>Wordpress / Woocommerce</li>
-					<li>NativeScript</li>
-					<li>MYSQL</li>
-					<li>HTML5</li>
-					<li>CSS3</li>
-					<li>REST</li>
-					<li>C++</li>
-					<li>Java</li>
-				</ul>
-			</div>
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Designer</h4>
-				</div>
-				<ul class="keywords">
-					<li>Photoshop</li>
-					<li>Illustrator</li>
-				</ul>
-			</div>
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Infra</h4>
-				</div>
-				<ul class="keywords">
-					<li>Linux</li>
-					<li>Cloud Servers</li>
-					<li>Apache</li>
-					<li>Docker</li>
-					<li>Email Server</li>
-					<li>DNS Server</li>
-					<li>AWS</li>
-				</ul>
-			</div>
-			</div>
-		</div>
-	</section>
+/* Back styling */
+.back {
+  background: #15CCC0;
+  padding: 30px;
+}
 
-	<section id="languages" class="row">
-		<aside class="col-sm-3">
-			<h3>Languages</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-6">
-				<div class="language">
-					<strong>Portuguese</strong>
-				</div>
-				<div class="fluency">
-					Native speaker
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="language">
-					<strong>English</strong>
-				</div>
-				<div class="fluency">
-					Advanced
-				</div>
-			</div>
-			</div>
-		</div>
-	</section>
+.name {
+  color: #3B3B3B;
+  margin-bottom: 0;
+}
 
-	
+p {
+  margin: 0.8em 0;
+}
 
-	</div>
-	
-	</body>
+.info {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  color: #3b3b3b;
+}
+
+.property {
+  color: #fff;
+}
+
+/* Make semi-responsive */
+@media (max-width: 700px) {
+  .card {
+    transform: scale(0.5);
+  }
+
+  .container:hover .card {
+    transform: scale(0.5) rotateY(-180deg) translateZ(1px);
+  }
+}
+
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card">
+    
+    <div class="front side">
+      <h1 class="logo">Gustavo Edinger</h1>
+    </div>
+    
+    <div class="back side">
+      <h3 class="name">Gustavo Edinger</h3>
+      <div>Full Stack Developer</div>      
+      <div class="info">
+        <p><span class="property">Email: </span><a href="mailto:gustavo@edinger.com.br" >gustavo@edinger.com.br</a></p>
+        <p><span class="property">Phone: </span>055 51 99946-4747</p>
+      </div>
+    </div>
+    
+  </div>
+</div>
+  
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
 </html>
